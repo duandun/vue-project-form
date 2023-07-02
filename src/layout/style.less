@@ -1,0 +1,72 @@
+@layout-prefix: c-layout;
+@layout-width: 100%;
+@content-width: 700px;
+@menu-width: 260px;
+.@{layout-prefix} {
+    position: relative;
+    width: @layout-width;
+    min-height: 100%;
+    margin: 0 auto;
+    padding: 3rem;
+    padding-bottom: 0;
+    &-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 3rem;
+        text-align: right;
+        padding: 0.5rem 6rem;
+        overflow: hidden;
+        border-top: 1px solid #ddd;
+    }
+    &-menu {
+        float: right;
+        width: @menu-width;
+        height: 200px;
+        background: #fff;
+    }
+    &-settings {
+      float: right;
+      width: @menu-width;
+      height: 600px;
+      background: #fff;
+      overflow-y: auto;
+    }
+    &-widgets {
+      float: left;
+      width: @menu-width;
+      height: 600px;
+      background: #fff;
+      overflow-y: auto;
+    }
+    &-content {
+      width: 100%;
+      height: auto;
+    }
+    &-header {
+        display: flex;
+        position: fixed;
+        align-items: center;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 3rem;
+        z-index: 11;
+        background: #fff;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+        font-size: 24px;
+        font-weight: bold;
+        padding: 0 24px;
+        .header-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            padding-left: 20px;
+            .ivu-dropdown {
+                margin-top: 14px;
+                margin-right: 20px;
+            }
+        }
+    }
+}
