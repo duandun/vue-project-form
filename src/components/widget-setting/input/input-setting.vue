@@ -18,8 +18,15 @@ BaseSetting
 <script setup>
 import { computed } from 'vue'
 import BaseSetting from '../base-setting.vue'
+import { useFormDataStore } from '@/stores/formDataStore'
+const store = useFormDataStore()
 const props = defineProps({
     setting: Object
 })
-const curSetting = computed(() => props.setting)
+const curSetting = computed({
+    get: () => props.setting,
+    set: (val) => {
+        store.updateSetting(val)
+    }
+})
 </script>

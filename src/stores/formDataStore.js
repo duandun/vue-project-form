@@ -115,8 +115,9 @@ export const useFormDataStore = defineStore('formData', {
         saveFormData() {
             // 存储在 localStorage 中
         },
-        updateSetting() {
-
+        updateSetting(setting) {
+            const [row, column] = this.activeIndex
+            this.schema[row][column] = setting
         },
     }
 })
