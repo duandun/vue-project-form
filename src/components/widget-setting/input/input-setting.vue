@@ -1,28 +1,25 @@
 <template lang="pug">
 BaseSetting
     template(v-slot:label)
-        Input(v-model="setting.label")
+        Input(v-model="curSetting.label")
     template(v-slot:name)
-        Input(v-model="setting.name")
+        Input(v-model="curSetting.gid")
     template(v-slot:placeholder)
-        Input(v-model="setting.placeholder")
+        Input(v-model="curSetting.placeholder")
     template(v-slot:default-value)
-        Input(v-model="setting.value")
+        Input(v-model="curSetting.value")
     template(v-slot:desc)
-        Input(v-model="setting.desc")
+        Input(v-model="curSetting.desc")
     template(v-slot:asyncExpression)
-        Input(v-model="setting.asyncExpression")
+        Input(v-model="curSetting.asyncExpression")
     template(v-slot:disabled)
-        i-switch(v-model="setting.disabled")
+        i-switch(v-model="curSetting.disabled")
 </template>
 <script setup>
-import { watch, ref } from 'vue'
+import { computed } from 'vue'
 import BaseSetting from '../base-setting.vue'
 const props = defineProps({
     setting: Object
 })
-const setting = ref(props.setting)
-// watch(props.setting, (value) => {
-//     setting.value = value
-// })
+const curSetting = computed(() => props.setting)
 </script>

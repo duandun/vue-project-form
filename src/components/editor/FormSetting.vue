@@ -1,10 +1,8 @@
 <template lang="pug">
 .widget-setting 
     component(
-        v-if="props.activeElem"
-        :is="getCurSettingCmp(props.activeElem)"
+        :is="store.settingCmp"
         :setting="props.activeElem"
-        :ref="props.activeElem.gid"
     )
 </template>
 
@@ -14,12 +12,6 @@ const props = defineProps({
     activeElem: Object
 })
 const store = useFormDataStore();
-function getCurSettingCmp(elem) {
-    if (elem) {
-        return store.widgetSettings[elem.gid];
-    }
-    return null
-}
 </script>
 
 <style lang="less" scoped>
